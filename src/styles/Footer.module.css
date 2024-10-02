@@ -1,0 +1,23 @@
+.footer {
+    background-color: #F78C6B; /* Secondary color */
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    font-family: 'Fredoka';
+
+  }
+  
+  .footerLinks {
+    margin-top: 1rem;
+  }
+  
+  .footerLink {
+    color: white;
+    margin: 0 1rem;
+    text-decoration: none;
+  }
+  
+  .footerLink:hover {
+    color: #43AA8B; /* Accent color */
+  }
+  

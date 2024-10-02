@@ -1,0 +1,34 @@
+/* src/styles/Hero.module.css */
+
+.hero {
+  background-color: white; /* Background color */
+  color: #333; /* Text color */
+  padding: 5rem 0;
+  text-align: center;
+  font-family: 'Fredoka';
+
+}
+
+.heroTitle {  
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.heroText {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.heroButton {
+  background-color: #43AA8B; /* Accent color */
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+}
+
+.heroButton:hover {
+  background-color: #2D5F7A; /* Primary color on hover */
+}
