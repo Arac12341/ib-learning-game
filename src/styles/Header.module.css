@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Kay+Pho+Du:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap");
 
 .header {
   background-color: #ffffff;
@@ -8,8 +8,7 @@
 
 .container {
   display: flex;
-  font-family: 'Fredoka';
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
@@ -20,21 +19,106 @@
   gap: 2rem;
 }
 
-.nav-link {
+.navLink {
   color: #333;
   text-decoration: none;
   font-weight: 500;
 }
 
-.nav-link:hover {
-  color: #000;
+.navLink:hover {
+  color: #2D5F7A;
 }
 
 .buttons {
   display: flex;
-  gap: 1rem; 
+  gap: 1rem;
 }
 
+/* Profile Menu */
+.profileMenu {
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.profileIconImage {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profileDropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  min-width: 160px;
+  z-index: 999;
+}
+
+.profileMenu:hover .profileDropdown {
+  display: block;
+}
+
+.profileDropdown ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.profileDropdown li {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #333;
+  cursor: pointer;
+}
+
+.profileDropdown li:hover {
+  color: #2D5F7A;
+}
+
+.profileDropdown li a {
+  text-decoration: none;
+  color: inherit;
+  margin-left: 10px;
+}
+
+.profileDropdown li a:hover {
+  color: #2D5F7A;
+}
+
+/* Dropdown Icon Styling */
+.dropdownIcon {
+  width: 20px; /* Adjust the size of the icons */
+  height: 20px;
+  margin-right: 10px;
+}
+
+/* Styling for the "Sign Out" Button */
+.signOut {
+  color: #e63946;
+  padding: 0.5rem 1rem;
+  border: 1px solid #e63946;
+  border-radius: 12px;
+  transition: color 0.3s ease;
+}
+
+.signOut:hover {
+  color: #d62828;
+  background-color: transparent;
+  border-color: #d62828;
+}
+
+/* Buttons Styling */
 .button {
   background-color: #F78C6B;
   color: white;
@@ -44,17 +128,12 @@
   border-radius: 12px;
 }
 
-.button--primary {
-  background-color: #2D5F7A;
-  color: white;
-}
-
-.button--outline {
+.buttonOutline {
   border: 1px solid #2D5F7A;
   color: #2D5F7A;
 }
 
-.button--outline:hover {
-  background-color: #f3f3f3;
+.buttonOutline:hover {
+  color: #ffffff;
+  background-color: #2D5F7A;
 }
-

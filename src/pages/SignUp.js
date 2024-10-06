@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 import styles from '../styles/SignUp.module.css';
 import Link from 'next/link';
 
-
 export default function SignUp() {
-  const [userType, setUserType] = useState('Student');
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
     email: '',
     confirmEmail: '',
+    password: '',
+    confirmPassword: '',
     termsAccepted: false,
   });
+  const [error, setError] = useState('');
+  const [message, setMessage] = useState('');
+  const router = useRouter();
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -21,40 +25,49 @@ export default function SignUp() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Implement form validation and submission logic here
-    console.log('Form submitted', formData);
+    setError('');
+    setMessage('');
+
+    // Validate passwords match
+    if (formData.password !== formData.confirmPassword) {
+      setError('Passwords do not match');
+      return;
+    }
+
+    try {
+      const res = await fetch('/api/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        setMessage('Sign-up successful! Redirecting...');
+        setError('');
+        setTimeout(() => {
+          router.push('/LogIn');  // Redirect to login page
+        }, 2000);
+      } else {
+        setError(data.message || 'An error occurred during sign-up');
+      }
+    } catch (err) {
+      setError('An unexpected error occurred');
+      console.error(err);
+    }
   };
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <h1 className={styles.title}>Create an account</h1>
-
-        {/* User Type Selection */}
-        <div className={styles.userTypeContainer}>
-          <label className={styles.userTypeLabel}>User Type:</label>
-          <div className={styles.userTypeOptions}>
-            <button
-              type="button"
-              className={`${styles.userTypeButton} ${userType === 'Student' ? styles.active : ''}`}
-              onClick={() => setUserType('Student')}
-            >
-            Student
-            </button>
-            <button
-              type="button"
-              className={`${styles.userTypeButton} ${userType === 'Educator' ? styles.active : ''}`}
-              onClick={() => setUserType('Educator')}
-            >
-            Educator
-            </button>
-          </div>
-        </div>
-
         <form onSubmit={handleSubmit} className={styles.formContainer}>
-          {/* First Name and Last Name in a Single Row */}
+          {/* First Name and Last Name */}
           <div className={styles.nameRow}>
             <div className={styles.inputWrapper}>
               <label className={styles.inputLabel} htmlFor="firstName">First Name</label>
@@ -85,7 +98,7 @@ export default function SignUp() {
             </div>
           </div>
 
-          {/* Email Address */}
+          {/* Email */}
           <div className={styles.emailRow}>
             <label className={styles.inputLabel} htmlFor="email">Email Address</label>
             <input
@@ -100,7 +113,7 @@ export default function SignUp() {
             />
           </div>
 
-          {/* Confirm Email Address */}
+          {/* Confirm Email */}
           <div className={styles.emailRow}>
             <label className={styles.inputLabel} htmlFor="confirmEmail">Confirm Email Address</label>
             <input
@@ -111,6 +124,36 @@ export default function SignUp() {
               onChange={handleChange}
               className={styles.largeInput}
               placeholder="Confirm your email"
+              required
+            />
+          </div>
+
+          {/* Password */}
+          <div className={styles.passwordRow}>
+            <label className={styles.inputLabel} htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              className={styles.largeInput}
+              placeholder="Enter a password"
+              required
+            />
+          </div>
+
+          {/* Confirm Password */}
+          <div className={styles.passwordRow}>
+            <label className={styles.inputLabel} htmlFor="confirmPassword">Confirm Password</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              className={styles.largeInput}
+              placeholder="Confirm your password"
               required
             />
           </div>
@@ -132,13 +175,14 @@ export default function SignUp() {
 
           {/* Submit Button */}
           <button type="submit" className={styles.submitButton}>Create</button>
+
+          {/* Error and Success Messages */}
+          {error && <p style={{ color: 'red' }}>{error}</p>}
+          {message && <p style={{ color: 'green' }}>{message}</p>}
         </form>
 
         <div className={styles.signInLink}>
-          Already have an account?
-          <Link href="/LogIn" className={styles.signInLink}>
-             Sign Up
-          </Link>  
+          Already have an account? <Link href="/LogIn">Log In</Link>
         </div>
       </div>
     </div>
