@@ -1,5 +1,4 @@
-// components/Header.js
-
+import Link from 'next/link';
 import React from 'react';
 import styles from '../styles/Header.module.css'; 
 
@@ -19,8 +18,12 @@ export default function Header() {
 
         {/* Buttons */}
         <div className={styles.buttons}>
-          <button className={`${styles.button} ${styles.buttonPrimary}`}>Sign Up</button>
-          <button className={`${styles.button} ${styles.buttonOutline}`}>Log In</button>
+        <Link href="/SignUp" className={`${styles.button} ${styles.buttonOutline}`}>
+          Sign Up
+        </Link>          
+        <Link href="/LogIn" className={`${styles.button} ${styles.buttonOutline}`}>
+          Log In
+        </Link> 
         </div>
       </div>
     </header>

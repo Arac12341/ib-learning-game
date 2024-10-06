@@ -1,0 +1,103 @@
+/* src/styles/CourseOutline.module.css */
+
+.courseOutlineContainer {
+    padding: 4rem 2rem;
+    background-color: #f9fafc; /* Light background */
+    font-family: 'Fredoka', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .courseTitle {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #2d5f7a; /* Title color */
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+  
+  .unitGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px; /* Limit width for readability */
+  }
+  
+  .unitItem {
+    background-color: #28627c; /* Dark blue card background */
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); /* Card shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .unitHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .unitHeader:hover {
+    background-color: #2d5f7a; /* Lighter hover effect */
+  }
+  
+  .unitTitle {
+    font-size: 1.5rem;
+    color: #ff8f66; /* Orange text matching homepage */
+  }
+  
+  .chevronIcon {
+    color: #ff8f66;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease; /* Add smooth rotation transition */
+  }
+  
+  .active .chevronIcon {
+    transform: rotate(180deg); /* Rotate when active */
+  }
+  
+  /* Sub-unit container with height transition */
+  .subUnitContainer {
+    overflow: hidden; /* Hide content when collapsed */
+    max-height: 0; /* Start collapsed */
+    transition: max-height 0.4s ease; /* Smooth expand/collapse */
+  }
+  
+  .subUnitContainer.active {
+    max-height: 500px; /* Large enough height to show content */
+  }
+  
+  .subUnitList {
+    list-style: none;
+    padding: 1rem 0 0 0; /* Padding only at the top */
+  }
+  
+  .subUnitItem {
+    background-color: #ffffff;
+    margin: 0.5rem 0;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background-color 0.3s ease;
+  }
+  
+  .subUnitItem:hover {
+    background-color: #f1f1f1; /* Light hover effect */
+  }
+  
+  .subUnitLink {
+    text-decoration: none;
+    color: #43AA8B;
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+  
+  .subUnitLink:hover {
+    color: #2d5f7a; /* Darker green on hover */
+  }
+  

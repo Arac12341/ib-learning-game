@@ -1,4 +1,3 @@
-// src/components/Hero.js
 import { motion } from 'framer-motion'
 import styles from '../styles/Hero.module.css'
 
@@ -12,10 +11,10 @@ export default function Hero() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          Welcome to IB Learning Hub
+          IBMastery
         </motion.h2>
         <p className={styles.heroText}>
-          Master IB Computer Science and Economics with interactive lessons, quizzes, and more.
+          Master IB Subjects with interactive lessons, quizzes, and more.
         </p>
         <motion.button
           className={styles.heroButton}
