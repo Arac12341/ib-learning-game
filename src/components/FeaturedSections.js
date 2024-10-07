@@ -6,7 +6,7 @@ export default function FeaturedSections() {
     <section className={styles.featuredSection}>
       <div className={styles.sectionGrid}>
         <div className={styles.card}>
-          <h3 className={styles.cardTitle}>IB Computer Science</h3>
+          <h3 className={styles.cardTitle}>IB Comp Sci</h3>
           <p className={styles.cardDescription}>
             Learn programming, data structures, and algorithms.
           </p>

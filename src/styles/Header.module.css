@@ -1,9 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 
+/* Header Base Styles */
 .header {
   background-color: #ffffff;
   padding: 1rem 0;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  font-family: 'Roboto Mono', monoscape;
 }
 
 .container {
@@ -14,100 +16,129 @@
   margin: 0 auto;
 }
 
+.logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #998DA5;
+}
+
+/* Navigation Styles */
 .nav {
   display: flex;
   gap: 2rem;
+  font-size: 0.75rem;
+  padding-right: 600px;
+  padding-top: 5px;
+}
+
+.navItem {
+  position: relative;
 }
 
 .navLink {
   color: #333;
-  text-decoration: none;
+  cursor: pointer;
   font-weight: 500;
+  text-decoration: none;
 }
 
 .navLink:hover {
   color: #2D5F7A;
 }
 
-.buttons {
-  display: flex;
-  gap: 1rem;
+/* Dropdown for Navbar - Toggle on Click */
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  z-index: 100;
+  min-width: 200px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* Profile Menu */
+.dropdownItem {
+  padding: 8px 12px;
+  display: block;
+  color: #333;
+  text-decoration: none;
+}
+
+.dropdownItem:hover {
+  background-color: #f3f3f3;
+}
+
+.showDropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
 .profileMenu {
-  display: flex;
-  align-items: center;
   position: relative;
-  cursor: pointer;
-}
-
-.profileIconImage {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
 }
 
 .profileDropdown {
-  display: none;
   position: absolute;
   top: 100%;
   right: 0;
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
-  min-width: 160px;
-  z-index: 999;
+  min-width: 200px;
+  padding: 10px;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px); /* Start slightly below */
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .profileMenu:hover .profileDropdown {
-  display: block;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0); /* Bring into view */
 }
 
 .profileDropdown ul {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.profileDropdown li {
+.profileDropdown ul li {
   display: flex;
   align-items: center;
-  padding: 0.5rem 0;
-  font-size: 0.9rem;
-  font-weight: 400;
-  color: #333;
+  padding: 8px 12px;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.profileDropdown li:hover {
-  color: #2D5F7A;
+.profileDropdown ul li:hover {
+  background-color: #f3f3f3;
 }
 
-.profileDropdown li a {
-  text-decoration: none;
-  color: inherit;
-  margin-left: 10px;
-}
-
-.profileDropdown li a:hover {
-  color: #2D5F7A;
-}
-
-/* Dropdown Icon Styling */
 .dropdownIcon {
-  width: 20px; /* Adjust the size of the icons */
+  width: 20px;
   height: 20px;
-  margin-right: 10px;
+  margin-right: 8px;
 }
 
-/* Styling for the "Sign Out" Button */
+.profileIconImage {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
 .signOut {
   color: #e63946;
   padding: 0.5rem 1rem;
-  border: 1px solid #e63946;
   border-radius: 12px;
   transition: color 0.3s ease;
 }
@@ -115,12 +146,11 @@
 .signOut:hover {
   color: #d62828;
   background-color: transparent;
-  border-color: #d62828;
 }
 
 /* Buttons Styling */
 .button {
-  background-color: #F78C6B;
+  background-color: #998DA5;
   color: white;
   border: none;
   padding: 9px 20px;
@@ -128,12 +158,40 @@
   border-radius: 12px;
 }
 
-.buttonOutline {
-  border: 1px solid #2D5F7A;
-  color: #2D5F7A;
+.buttons {
+  display: flex;
+  gap: 1rem; /* Add space between buttons */
 }
 
 .buttonOutline:hover {
   color: #ffffff;
+  background-color: #8a759f;
+}
+
+.profileIconImage {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 50%;
+  cursor: pointer;
+  border-radius: 50%;
   background-color: #2D5F7A;
+  border: 1.5px solid black;
+}
+
+/* Additional responsive styles */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .nav {
+    flex-direction: column;
+    gap: 1rem;
+  }
 }

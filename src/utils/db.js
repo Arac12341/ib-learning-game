@@ -3,10 +3,11 @@ import mongoose from 'mongoose';
 const MONGO_URI = process.env.MONGO_URI;
 
 if (!MONGO_URI) {
-  throw new Error('Please add your Mongo URI to .env file');
+  console.error('MongoDB connection error: No MONGO_URI found in environment variables');
+  throw new Error('Please add your Mongo URI to the .env file');
 }
 
-let isConnected = false;
+let isConnected = false; // To track the MongoDB connection state
 
 export const connectMongo = async () => {
   if (isConnected) {
@@ -15,13 +16,21 @@ export const connectMongo = async () => {
   }
 
   try {
+    console.log('Connecting to MongoDB...');
+
     const db = await mongoose.connect(MONGO_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
 
     isConnected = db.connections[0].readyState === 1;
-    console.log('MongoDB connected');
+    
+    if (isConnected) {
+      console.log('MongoDB connected successfully');
+    } else {
+      console.error('MongoDB connected but readyState is not 1');
+    }
+    
   } catch (error) {
     console.error('MongoDB connection error:', error);
     throw new Error('MongoDB connection failed');

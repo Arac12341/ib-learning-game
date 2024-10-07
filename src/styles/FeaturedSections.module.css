@@ -2,7 +2,7 @@
 .featuredSection {
   padding: 4rem 2rem;
   background-color: white;
-  font-family: 'Fredoka';
+  font-family: 'Roboto Mono', monoscape; 
 }
 
 .sectionGrid {
@@ -18,7 +18,7 @@
 }
 
 .card {
-  background-color: #2D5F7A; 
+  background-color: #F4FDD9; 
   color: white;
   padding: 1.5rem 1rem; 
   border-radius: 1rem;
@@ -43,7 +43,7 @@
   font-size: 1.75rem;
   font-weight: bold;
   margin-bottom: 1rem;
-  color: #F78C6B;
+  color: #998DA5;
 }
 
 .cardDescription {
@@ -53,6 +53,7 @@
   transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
   margin: 1rem 0;
   max-height: 0; 
+  color: black;
 }
 
 .card:hover .cardDescription {
@@ -63,7 +64,7 @@
 }
 
 .cardButton {
-  background-color: #43AA8B; 
+  background-color: #998DA5; 
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;

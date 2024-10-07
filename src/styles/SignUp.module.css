@@ -2,187 +2,211 @@
 
 /* Wrapper and container for centering and layout */
 .wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f5f5f7; /* Light background for the form */
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f5f5f7; 
+  font-family: 'Roboto Mono', monospace;
+}
+
+.container {
+  max-width: 450px; /* Slightly more compact for a tighter form */
+  width: 100%;
+  background-color: white;
+  padding: 2.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Title Styling */
+.title {
+  font-size: 1.8rem;  /* Smaller font size */
+  font-weight: bold;
+  color: #333;  /* Darker for more emphasis */
+  margin-bottom: 1rem;
+}
+
+/* User type buttons */
+.userTypeContainer {
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+.userTypeLabel {
+  display: block;
+  font-size: 0.75rem;
+  color: #998DA5;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.userTypeOptions {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.userTypeButton {
+  flex: 1;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  background-color: #f5f5f7;
+  font-size: 0.875rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.userTypeButton.active {
+  background-color: #43AA8B;
+  color: white;
+  border-color: #43AA8B;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* Input Label */
+.inputLabel {
+  text-align: left;
+  font-size: 1rem;
+  color: #2D5F7A;
+  font-weight: 500;
+}
+
+/* Input Fields */
+.inputContainer {
+  width: 100%;
+  padding: 0.75rem 1.25rem;  /* Wider padding */
+  border: 1px solid #ddd;
+  border-radius: 1.25rem;  /* More rounded corners to match the style */
+  font-size: 1rem;
+  background-color: #f5f5f7;
+}
+
+.inputContainer:focus {
+  border-color: #6200ea;
+  outline: none;
+  background-color: #ffffff;
+}
+
+.nameRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.inputWrapper {
+  flex: 1;
+}
+
+.largeInput {
+  width: 100%;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid #ddd;
+  border-radius: 1.25rem;
+  font-size: 1rem;
+  background-color: #f5f5f7;
+}
+
+.termsContainer {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  margin-top: 1rem;
+}
+
+.termsContainer input {
+  margin-right: 0.5rem;
+}
+
+.termsContainer a {
+  color: #2D5F7A;
+  text-decoration: none;
+}
+
+.termsContainer a:hover {
+  text-decoration: underline;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.15rem;
+  font-weight: bold;
+  background-color: #998DA5;
+  color: white;
+  border: none;
+  border-radius: 1.25rem; /* More rounded */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1.5rem;
+}
+
+.submitButton:hover {
+  background-color: #877697;
+}
+
+/* Google Sign-In Button */
+.googleButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 1.25rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+}
+
+.googleButton img {
+  width: 20px;
+}
+
+.googleButton:hover {
+  background-color: #f3f3f3;
+}
+
+/* Sign-In Link */
+.signInLink {
+  margin-top: 1.5rem;
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.signInLink a {
+  color: #2D5F7A;
+  text-decoration: none;
+}
+
+.signInLink a:hover {
+  text-decoration: underline;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
   .container {
-    max-width: 600px; /* Slightly wider for a larger form */
-    width: 100%;
-    background-color: white;
-    padding: 2.5rem;
-    border-radius: 1rem;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-  
-  .title {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #2D5F7A; /* Blue for the title */
-    margin-bottom: 1.5rem;
-  }
-  
-  /* User type buttons */
-  .userTypeContainer {
-    text-align: left;
-    margin-bottom: 1.5rem;
-  }
-  
-  .userTypeLabel {
-    display: block;
-    font-size: 1rem;
-    color: #2D5F7A; /* Blue for labels */
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-  }
-  
-  .userTypeOptions {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-  }
-  
-  .userTypeButton {
-    flex: 1;
-    padding: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 0.5rem;
-    background-color: #f5f5f7;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-  }
-  
-  .userTypeButton.active {
-    background-color: #43AA8B; /* Green for active button */
-    color: white;
-    border-color: #43AA8B;
-  }
-  
-  .formContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    margin-top: 1rem;
-  }
-  
-  /* Input label */
-  .inputLabel {
-    text-align: left;
-    font-size: 1rem;
-    color: #2D5F7A; /* Blue for labels */
-    font-weight: 500;
-  }
-  
-  /* Input fields */
-  .inputContainer {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    border: 1px solid #ddd;
-    border-radius: 8px; /* Rounded corners */
-    font-size: 1rem;
-    background-color: #f5f5f7; /* Light gray input background */
-  }
-  
-  .inputContainer:focus {
-    border-color: #6200ea; /* Purple border on focus */
-    outline: none;
-    background-color: #ffffff; /* White background on focus */
-  }
-  
-  /* Name fields in a row */
-  .nameRow {
-    display: flex;
-    justify-content: space-between;
-    gap: 1.5rem;
-  }
-  
-  .inputWrapper {
-    flex: 1;
-  }
-  
-  /* Larger input fields for email */
-  .largeInput {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 1.25rem; /* Larger font size */
-    background-color: #f5f5f7;
-  }
-  
-  /* Terms and conditions checkbox */
-  .termsContainer {
-    display: flex;
-    align-items: center;
-    text-align: left;
-    margin-top: 1rem;
-  }
-  
-  .termsContainer input {
-    margin-right: 0.5rem;
-  }
-  
-  .termsContainer a {
-    color: #2D5F7A; /* Purple for the terms link */
-    text-decoration: none;
-  }
-  
-  .termsContainer a:hover {
-    text-decoration: underline;
-  }
-  
-  /* Submit button */
-  .submitButton {
-    width: 100%;
-    padding: 0.75rem 1.5rem;
-    font-size: 1.25rem;
-    font-weight: bold;
-    background-color: #43AA8B; /* Green for the submit button */
-    color: white;
-    border: none;
-    border-radius: 8px; /* Rounded corners */
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 1.5rem;
-  }
-  
-  .submitButton:hover {
-    background-color: #2d6f5b; /* Darker green on hover */
-  }
-  
-  /* Sign-in link */
-  .signInLink {
-    margin-top: 1.5rem;
-    font-size: 0.875rem;
-    color: #666;
-  }
-  
-  .signInLink a {
-    color: #2D5F7A; /* Blue for the sign-in link */
-    text-decoration: none;
-  }
-  
-  .signInLink a:hover {
-    text-decoration: underline;
-  }
-  
-  @media (max-width: 768px) {
-    .container {
       padding: 1.5rem;
       width: 90%;
-    }
-  
-    .submitButton {
-      font-size: 1.15rem;
-    }
   }
-  
+
+  .submitButton {
+      font-size: 1rem;
+  }
+}

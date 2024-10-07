@@ -4,27 +4,27 @@
 
 body {
   background-color: #f7f7fc; /* Light gray background */
-  font-family: 'Fredoka';
+  font-family: 'Roboto Mono', monoscape; 
 }
 
 h2, h3 {
-  color: #2D5F7A; 
+  color: #998DA5; 
 }
 
 h1 {
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 1rem;
-  color: #2D5F7A; /* Darker text for better contrast */
+  color: #998DA5; /* Darker text for better contrast */
 }
 
 a {
   text-decoration: none;
-  color: #43AA8B; 
+  color: black; 
 }
 
 button {
-  background-color: #F78C6B;
+  background-color: #998DA5;
   color: white;
   border: none;
   padding: 10px 20px;

@@ -70,7 +70,6 @@ export default function SignUp() {
           {/* First Name and Last Name */}
           <div className={styles.nameRow}>
             <div className={styles.inputWrapper}>
-              <label className={styles.inputLabel} htmlFor="firstName">First Name</label>
               <input
                 type="text"
                 id="firstName"
@@ -84,7 +83,6 @@ export default function SignUp() {
             </div>
 
             <div className={styles.inputWrapper}>
-              <label className={styles.inputLabel} htmlFor="lastName">Last Name</label>
               <input
                 type="text"
                 id="lastName"
@@ -100,7 +98,6 @@ export default function SignUp() {
 
           {/* Email */}
           <div className={styles.emailRow}>
-            <label className={styles.inputLabel} htmlFor="email">Email Address</label>
             <input
               type="email"
               id="email"
@@ -115,7 +112,6 @@ export default function SignUp() {
 
           {/* Confirm Email */}
           <div className={styles.emailRow}>
-            <label className={styles.inputLabel} htmlFor="confirmEmail">Confirm Email Address</label>
             <input
               type="email"
               id="confirmEmail"
@@ -130,7 +126,6 @@ export default function SignUp() {
 
           {/* Password */}
           <div className={styles.passwordRow}>
-            <label className={styles.inputLabel} htmlFor="password">Password</label>
             <input
               type="password"
               id="password"
@@ -145,7 +140,6 @@ export default function SignUp() {
 
           {/* Confirm Password */}
           <div className={styles.passwordRow}>
-            <label className={styles.inputLabel} htmlFor="confirmPassword">Confirm Password</label>
             <input
               type="password"
               id="confirmPassword"

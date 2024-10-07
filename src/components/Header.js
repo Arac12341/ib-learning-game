@@ -1,15 +1,31 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { parseCookies, destroyCookie } from 'nookies';
+import jwt_decode from 'jwt-decode';
 import styles from '../styles/Header.module.css';
 
 export default function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userName, setUserName] = useState('');
 
   useEffect(() => {
     const cookies = parseCookies();
+    console.log("Cookies found:", cookies);
+
     if (cookies.token) {
       setIsLoggedIn(true);
+
+      try {
+        const decodedToken = jwt_decode(cookies.token);
+        console.log("Decoded Token:", decodedToken);
+
+        const name = decodedToken.name || 'Guest User';
+        console.log("Name found in token:", name);
+
+        setUserName(name);
+      } catch (error) {
+        console.error("Error decoding token:", error);
+      }
     }
   }, []);
 
@@ -19,27 +35,32 @@ export default function Header() {
     window.location.href = '/';
   };
 
+  const getInitials = (name) => {
+    const nameParts = name.trim().split(' ');
+    if (nameParts.length === 1) return nameParts[0].charAt(0).toUpperCase();
+    return `${nameParts[0].charAt(0).toUpperCase()}${nameParts[1].charAt(0).toUpperCase()}`;
+  };
+
+  console.log("Final User Name:", userName);
+  console.log("Initials:", getInitials(userName));
+
   return (
     <header className={styles.header}>
       <div className={styles.container}>
         <span className={styles.logo}>MySite</span>
 
         <nav className={styles.nav}>
-          <Link href="/" className={styles.navLink}>Home</Link>
-          <Link href="/courses" className={styles.navLink}>Courses</Link>
-          <Link href="/about" className={styles.navLink}>About</Link>
+          {/* Add your nav items here */}
         </nav>
 
         <div className={styles.buttons}>
           {isLoggedIn ? (
             <div className={styles.profileMenu}>
-              {/* Profile Icon */}
-              <img
-                src="/images/profileicon.png" // Replace with your image path
-                alt="Profile Icon"
-                className={styles.profileIconImage}
-              />
-              {/* Dropdown */}
+              {/* Display user's initials */}
+              <div className={styles.profileIconImage}>
+                {userName ? getInitials(userName) : 'G'} {/* Default to 'G' if userName is not available */}
+              </div>
+
               <div className={styles.profileDropdown}>
                 <ul>
                   <li>

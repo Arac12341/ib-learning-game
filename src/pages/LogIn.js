@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import { setCookie } from 'nookies';  // For setting cookies
+import { setCookie } from 'nookies';  
 import styles from '../styles/LogIn.module.css';
 import Link from 'next/link';
 
@@ -41,18 +41,17 @@ export default function LoginForm() {
       if (res.ok) {
         setMessage('Login successful! Redirecting...');
         setError('');
-
-        // Store JWT in a cookie for future authenticated requests
+      
         setCookie(null, 'token', data.token, {
-          maxAge: 60 * 60 * 1, // 1 hour expiration
+          maxAge: 60 * 60 * 1 * 325, 
           path: '/',
         });
-
-        // Redirect to the home page after login
+      
         setTimeout(() => {
           router.push('/');  // Redirect to home
         }, 1000);
-      } else {
+      }       
+      else {
         setError(data.message || 'Invalid email or password');
       }
     } catch (err) {
@@ -106,7 +105,9 @@ export default function LoginForm() {
         </form>
 
         <div className={styles.links}>
-          <a href="#">Reset password</a> <br /> Don't have an account? <br />
+        <Link href="/SignUp" className={styles.cardButton}>
+            Reset Passwords
+          </Link> <br /> Don't have an account? <br />
           <Link href="/SignUp" className={styles.cardButton}>
             Sign Up
           </Link>

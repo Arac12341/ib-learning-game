@@ -7,8 +7,6 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'sans-serif'], // For body text
-        serif: ['Playfair Display', 'serif'], // For headings
       },
       colors: {
         primary: '#2D5F7A',

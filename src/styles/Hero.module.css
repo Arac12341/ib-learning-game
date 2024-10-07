@@ -1,34 +1,104 @@
 /* src/styles/Hero.module.css */
 
 .hero {
-  background-color: white; /* Background color */
-  color: #333; /* Text color */
+  background-color: white;
+  color: #333;
   padding: 5rem 0;
-  text-align: center;
-  font-family: 'Fredoka';
-
+  display: flex; /* To align left and right sections */
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Roboto Mono', monospace; /* Monospace font */
 }
 
-.heroTitle {  
+.heroContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.heroContent {
+  max-width: 50%;
+  text-align: left; 
+  padding-left: 50px;
+  padding-top: 50px;
+}
+
+.heroTitle {
   font-size: 3rem;
   font-weight: bold;
   margin-bottom: 1.5rem;
+  color: #998DA5; /* Soft purple/gray */
 }
 
 .heroText {
-  font-size: 1.25rem;
+  font-size: 1rem;
   margin-bottom: 2rem;
+  color: #333;
 }
 
 .heroButton {
-  background-color: #43AA8B; /* Accent color */
+  background-color: #998DA5; /* Soft purple/gray */
   color: white;
   padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   border: none;
   cursor: pointer;
 }
 
 .heroButton:hover {
-  background-color: #2D5F7A; /* Primary color on hover */
+  background-color: #8a759f; /* Slightly darker accent on hover */
+}
+
+/* Right side styles */
+.heroSlideshow {
+  padding-top: 100px;
+  max-width: 45%;
+  position: relative;
+  overflow: hidden;
+  min-height: 200px; /* Set a fixed minimum height for consistency */
+}
+
+.slide {
+  display: none; /* Hidden by default */
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  min-height: 200px; /* Same height as the slideshow container */
+}
+
+.slide.active {
+  display: block;
+}
+
+.reviewText {
+  font-size: 1.1rem;
+  color: #8a759f;
+  margin-bottom: 0.75rem;
+}
+
+.reviewAuthor {
+  font-size: 0.9rem;
+  color: #8a759f;
+}
+
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .heroContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .heroContent {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .heroSlideshow {
+    max-width: 100%;
+    margin-top: 2rem;
+  }
 }

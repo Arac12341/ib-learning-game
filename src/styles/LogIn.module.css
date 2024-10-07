@@ -5,6 +5,8 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  font-family: 'Roboto Mono', monoscape;
+
 }
 
 .container {
@@ -24,13 +26,14 @@
   border: 1px solid #ddd;
   border-radius: 8px;
   background-color: #f5f5f7;
+  color: 998DA5;
 }
 
 .submitButton {
   width: 100%;
   padding: 0.75rem 1.5rem;
   font-size: 1.25rem;
-  background-color: #43AA8B;
+  background-color: #998DA5;
   color: white;
   border: none;
   border-radius: 8px;
@@ -39,7 +42,7 @@
 }
 
 .submitButton:hover {
-  background-color: #2d6f5b;
+  background-color: #827292;
 }
 
 .passwordContainer {
@@ -57,12 +60,14 @@
 
 .links {
   margin-top: 1rem;
+  font-size: 0.75rem;
 }
 
 .links a {
-  color: #2D5F7A;
+  color: #998DA5;
   text-decoration: none;
   font-weight: bold;
+  font-size: 0.75rem;
 }
 
 .links a:hover {
