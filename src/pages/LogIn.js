@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useRouter } from 'next/router';
-import { setCookie } from 'nookies';  
-import styles from '../styles/LogIn.module.css';
+import { setCookie } from 'nookies';
 import Link from 'next/link';
+import { jwtDecode } from 'jwt-decode';  // Import jwtDecode
+import UserContext from '../context/UserContext';  // Import UserContext
+import styles from '../styles/LogIn.module.css';
 
 export default function LoginForm() {
+  const { setUser } = useContext(UserContext);  // Destructure setUser from UserContext
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -41,17 +44,26 @@ export default function LoginForm() {
       if (res.ok) {
         setMessage('Login successful! Redirecting...');
         setError('');
-      
+
+        // Set token in cookies
         setCookie(null, 'token', data.token, {
-          maxAge: 60 * 60 * 1 * 325, 
+          maxAge: 36000,  // 10 hours
           path: '/',
         });
-      
+
+        // Decode token and update the UserContext
+        const decodedToken = jwtDecode(data.token);
+        setUser({
+          name: decodedToken.name,
+          email: decodedToken.email,
+          username: decodedToken.username || 'User',
+        });
+
+        // Redirect user to home page after login
         setTimeout(() => {
-          router.push('/');  // Redirect to home
-        }, 1000);
-      }       
-      else {
+          router.push('/');  // Redirect to home page
+        }, 1000);  // 1 second delay before redirecting
+      } else {
         setError(data.message || 'Invalid email or password');
       }
     } catch (err) {
@@ -105,8 +117,8 @@ export default function LoginForm() {
         </form>
 
         <div className={styles.links}>
-        <Link href="/SignUp" className={styles.cardButton}>
-            Reset Passwords
+          <Link href="/reset-password" className={styles.cardButton}>
+            Reset Password
           </Link> <br /> Don't have an account? <br />
           <Link href="/SignUp" className={styles.cardButton}>
             Sign Up

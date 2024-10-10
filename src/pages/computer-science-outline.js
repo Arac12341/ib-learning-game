@@ -1,88 +1,47 @@
-// src/pages/computer-science-outline.js
-import { useState } from 'react';
-import Link from 'next/link';
-import styles from '../styles/CourseOutline.module.css';
-import { FaChevronDown } from 'react-icons/fa'; // Add the Chevron icon
+import React from 'react';
+import Header from '../components/Header';
+import styles from '../styles/computerScience.module.css';
 
-const courseOutline = [
-  {
-    id: 1,
-    unitTitle: "Unit 1: Introduction to Programming",
-    subUnits: [
-      {
-        id: '1-1',
-        title: "1.1 Basics of Programming",
-        link: "/questions/introduction-to-programming-basics",
-      },
-      {
-        id: '1-2',
-        title: "1.2 Variables and Data Types",
-        link: "/questions/variables-and-data-types",
-      },
-    ],
-  },
-  {
-    id: 2,
-    unitTitle: "Unit 2: Data Structures",
-    subUnits: [
-      {
-        id: '2-1',
-        title: "2.1 Arrays and Lists",
-        link: "/questions/arrays-and-lists",
-      },
-      {
-        id: '2-2',
-        title: "2.2 Trees and Graphs",
-        link: "/questions/trees-and-graphs",
-      },
-    ],
-  },
-];
-
-export default function ComputerScienceOutline() {
-  const [activeUnit, setActiveUnit] = useState(null); // Track only one active unit at a time
-
-  // Toggle the unit, ensuring only one is active
-  const toggleUnit = (unitId) => {
-    if (activeUnit === unitId) {
-      setActiveUnit(null); // Close if the same unit is clicked
-    } else {
-      setActiveUnit(unitId); // Open the clicked unit
-    }
-  };
-
+export default function ComputerScience() {
   return (
-    <div className={styles.courseOutlineContainer}>
-      <h1 className={styles.courseTitle}>Computer Science Course Outline</h1>
-      <div className={styles.unitGrid}>
-        {courseOutline.map((unit) => (
-          <div key={unit.id} className={styles.unitItem}>
-            <div className={styles.unitHeader} onClick={() => toggleUnit(unit.id)}>
-              <h3 className={styles.unitTitle}>{unit.unitTitle}</h3>
-              <FaChevronDown
-                className={`${styles.chevronIcon} ${activeUnit === unit.id ? styles.active : ''}`}
-              />
-            </div>
+    <>
+      <Header />
+      <div className={styles.csPage}>
+        <section className={styles.heroSection}>
+          <h1 className={styles.title}>IB Computer Science</h1>
+          <p className={styles.description}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </p>
+        </section>
 
-            {/* Show sub-units only if the corresponding unit is active */}
-            <div
-              className={`${styles.subUnitContainer} ${
-                activeUnit === unit.id ? styles.active : ''
-              }`}
-            >
-              <ul className={styles.subUnitList}>
-                {unit.subUnits.map((subUnit) => (
-                  <li key={subUnit.id} className={styles.subUnitItem}>
-                    <Link href={subUnit.link} className={styles.subUnitLink}>
-                      {subUnit.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+        <div className={styles.topicSection}>
+          <div className={styles.topicRow}>
+            <div className={styles.topicBox} style={{ backgroundColor: '#998DA5' }}>
+              <h3>Algorithms</h3>
+              <p className={styles.description}>Learn about algorithms, their types, and applications.</p>
+            </div>
+            <div className={styles.topicBox} style={{ backgroundColor: '#7FBBC7' }}>
+              <h3>Data Structures</h3>
+              <p className={styles.description}>Understand various data structures used in computing.</p>
+            </div>
+            <div className={styles.topicBox} style={{ backgroundColor: '#EF946C' }}>
+              <h3>Java</h3>
+              <p className={styles.description}>Master the basics of Java programming and OOP concepts.</p>
             </div>
           </div>
-        ))}
+
+          <div className={`${styles.topicRow} ${styles.secondRow}`}>
+            <div className={styles.topicBox} style={{ backgroundColor: '#BBC8CA' }}>
+              <h3>Databases</h3>
+              <p className={styles.description}>Explore database management systems and SQL queries.</p>
+            </div>
+            <div className={styles.topicBox} style={{ backgroundColor: '#EB6F7A' }}>
+              <h3>Linked Lists</h3>
+              <p className={styles.description}>Learn how linked lists work and their practical uses.</p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

@@ -24,7 +24,7 @@
 .title {
   font-size: 1.8rem;  /* Smaller font size */
   font-weight: bold;
-  color: #333;  /* Darker for more emphasis */
+  color: #998DA5;  /* Darker for more emphasis */
   margin-bottom: 1rem;
 }
 
@@ -157,7 +157,6 @@
   background-color: #877697;
 }
 
-/* Google Sign-In Button */
 .googleButton {
   display: flex;
   justify-content: center;

@@ -1,0 +1,207 @@
+.profileOuterContainer {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    height: 100vh; 
+}
+
+.sidebar {
+    background-color: white;
+    color: #ffffff;
+    padding: 2rem 1rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: fixed; 
+    width: 30vw; 
+    justify-content: center; 
+    align-items: center;
+    padding-bottom: 150px;
+}
+
+.sidebar h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebarLink {
+    margin: 1rem 0;
+    padding: 0.75rem 1rem;
+    width: 100%;
+    cursor: pointer;
+    color: black;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebarLink:hover,
+.active {
+    background-color: #998DA5;
+    color: white;
+}
+
+.profileContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+    background-color: #ffffff;
+    margin-left: 30vw; 
+    width: 70vw; 
+    height: 100vh;
+}
+
+.profileCard {
+    background-color: #f9f9fb;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    justify-content: center; 
+    align-items: center; 
+    height: 100%; 
+}
+
+.profileHeader {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; 
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.profileIcon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #998DA5;
+    color: white;
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profileDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+}
+
+.profileDetails h3 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: #2D5F7A;
+}
+
+.profileDetails span {
+    font-size: 1rem;
+    color: #8a759f;
+    margin-top: 0.5rem;
+}
+
+.profileDetails h3 {
+    margin: 0;
+    font-size: 1.8rem; 
+    color: #8a759f;
+}
+
+.subtitle {
+    font-size: 1rem; 
+    color: #8a759f;
+    margin-top: 0.5rem; 
+}
+
+.infoBox {
+    background-color: transparent;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+}
+
+.infoLabel {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.editableInput {
+    border: 1px solid #ddd;
+    padding: 1rem; 
+    border-radius: 12px;
+    width: 100%;
+    font-size: 1rem; 
+    background-color: #fff;
+}
+
+.displaySection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.infoRow {
+    display: flex;
+    gap: 2rem; 
+    justify-content: space-between;
+    margin-top: 2rem; 
+}
+
+.infoRow .infoBox {
+    flex: 1; 
+}
+
+/* Save button */
+.saveButton {
+    background-color: #43AA8B;
+    color: white;
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 2rem; 
+    align-self: flex-end; 
+}
+
+.saveButton:hover {
+    background-color: #2D5F7A;
+}
+
+/* Edit button */
+.editButton {
+    background-color: transparent;
+    border: none;
+    color: #43AA8B;
+    cursor: pointer;
+}
+
+.editButton:hover {
+    text-decoration: underline;
+}
+
+/* Escape button */
+.escapeButton {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #998DA5;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    z-index: 9999; 
+}
+
+.escapeButton:hover {
+    background-color: #8a759f;
+}

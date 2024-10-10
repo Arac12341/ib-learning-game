@@ -53,7 +53,7 @@
   transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
   margin: 1rem 0;
   max-height: 0; 
-  color: black;
+  color: #998DA5;
 }
 
 .card:hover .cardDescription {
@@ -75,7 +75,7 @@
 }
 
 .cardButton:hover {
-  background-color: #2d6f5b; 
+  background-color: #8a759f; 
 }
 
 /* Responsive behavior */

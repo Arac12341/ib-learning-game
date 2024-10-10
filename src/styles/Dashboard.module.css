@@ -1,0 +1,204 @@
+/* Main Dashboard Container */
+.dashboardContainer {
+  padding: 2rem;
+  display: flex;
+  background-color: white;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userInfoRow {
+  width: 80%;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 2rem;
+}
+
+.userInfoLeft {
+  display: flex;
+  align-items: center;
+}
+
+.userIcon {
+  width: 60px;
+  height: 60px;
+  background-color: #998da5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.8rem;
+}
+
+.userName {
+  margin-left: 1rem;
+  padding-top: 30px;
+}
+
+.mainBox {
+  width: 90%;
+  display: flex;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  background-color: white;
+  padding: 3rem;
+  margin-bottom: 3rem;  
+}
+
+.sidebar {
+  width: 30%;
+  padding-right: 2rem;
+  border-right: 1px solid #ddd;
+  transition: height 0.4s ease;
+  overflow: hidden;
+}
+
+.expanded {
+  height: auto;
+}
+
+.subjectOverview {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.subjectOverview:hover {
+  background-color: #f0f0f0;
+}
+
+.arrowIcon {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+
+.arrowOpen {
+  transform: rotate(180deg);
+}
+
+.subjectList {
+  margin-top: 10px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  list-style: none;
+  padding: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.showSubjects {
+  opacity: 1;
+  height: auto;
+}
+
+.sidebarLink {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  cursor: pointer;
+  background-color: white;
+  border-radius: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.sidebarLink:hover,
+.sidebarLink.active {
+  background-color: #998da5;
+  color: white;
+}
+
+.subjectDetails {
+  width: 70%;
+  padding-left: 2rem;
+  display: flex;
+  color: white;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.subjectCardsContainer {
+  margin-top: 3rem;
+  padding: 2rem;
+  background-color: #ffffff;  
+  border-radius: 12px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.subjectCard {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, height 0.3s ease;
+  margin-bottom: 1.5rem;
+  width: 90%;
+  height: 100px; 
+  overflow: hidden; /* Initially hide hover buttons */
+}
+
+.subjectCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+  height: 250px; 
+}
+
+.cardHeader h4 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #998DA5;
+  flex-grow: 1;
+}
+
+.hoverButtons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  width: 70%; 
+  margin-left: auto; 
+  margin-top: 1rem;
+}
+
+.subjectCard:hover .hoverButtons {
+  opacity: 1;
+}
+
+.hoverButton {
+  width: 180px; 
+  height: 200px; 
+  background-color: #998DA5;
+  color: white;
+  text-align: center;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.hoverButton:hover {
+  transform: scale(1.05); 
+}

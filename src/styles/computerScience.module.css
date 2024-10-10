@@ -1,0 +1,98 @@
+.csPage {
+    font-family: 'Roboto Mono', monospace;
+    padding: 0;
+  }
+  
+  .heroSection {
+    background-color: white;
+    text-align: left;
+    padding: 4rem;
+  }
+  
+  .title {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #998DA5;
+    margin-bottom: 1rem;
+  }
+  
+  .description {
+    font-size: 0.7rem;
+    color: black;
+    max-width: 90vw;
+  }
+  
+  .topicSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0;
+  }
+  
+  .topicRow {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin-bottom: 2rem;
+  }
+  
+  .topicRow.secondRow {
+    width: 60%;
+  }
+  
+  .topicBox {
+    flex: 1;
+    margin: 0 1rem;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    text-align: center;
+    height: 170px;
+    overflow: hidden;
+  }
+  
+  .topicBox:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .topicBox h3 {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: white;
+    transform: translateY(45px); /* Start lower */
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .topicBox:hover h3 {
+    transform: translateY(0px); /* Move up on hover */
+    color: white;
+  }
+  
+  .topicBox .description {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    font-size: 0.9rem;
+    color: white;
+    margin-top: 1rem;
+  }
+  
+  .topicBox:hover .description {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  .topicRow + .topicRow {
+    margin-top: 1.5rem;
+  }
+  
