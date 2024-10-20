@@ -3,15 +3,16 @@ import Header from '../components/Header';
 import UserContext from '../context/UserContext';
 import UserStatistics from '../components/UserStatistics';
 import styles from '../styles/Dashboard.module.css';
+import Link from 'next/link';
 
 export default function Dashboard() {
   const { user } = useContext(UserContext);
-  const [activeSection, setActiveSection] = useState(''); // Single state for active item
+  const [activeSection, setActiveSection] = useState('');
   const [isOverviewOpen, setIsOverviewOpen] = useState(false);
   const [isReportsOpen, setIsReportsOpen] = useState(false);
   const [isAchievementsOpen, setIsAchievementsOpen] = useState(false);
 
-  const subjects = ['IB Comp Sci HL', 'IB Math HL AA', 'IB Economics HL',];
+  const subjects = ['IB Comp Sci HL', 'IB Math HL', 'IB Economics HL'];
   const reports = ['Weekly Reports', 'Monthly Reports'];
   const achievements = ['Badges', 'Certificates'];
 
@@ -20,7 +21,7 @@ export default function Dashboard() {
   const toggleAchievements = () => setIsAchievementsOpen(!isAchievementsOpen);
 
   const handleSectionClick = (section) => {
-    setActiveSection(section);  // Set the active section
+    setActiveSection(section);
   };
 
   return (
@@ -40,9 +41,7 @@ export default function Dashboard() {
         </div>
 
         <div className={styles.mainBox}>
-          {/* Sidebar */}
           <div className={styles.sidebar}>
-            {/* Subject Overview Dropdown */}
             <div className={styles.subjectOverview} onClick={toggleOverview}>
               <span>Subject Overview</span>
               <img
@@ -63,7 +62,6 @@ export default function Dashboard() {
               ))}
             </ul>
 
-            {/* Progress Reports Dropdown */}
             <div className={styles.subjectOverview} onClick={toggleReports}>
               <span>Progress Reports</span>
               <img
@@ -84,7 +82,6 @@ export default function Dashboard() {
               ))}
             </ul>
 
-            {/* Achievements Dropdown */}
             <div className={styles.subjectOverview} onClick={toggleAchievements}>
               <span>Achievements</span>
               <img
@@ -106,12 +103,9 @@ export default function Dashboard() {
             </ul>
           </div>
 
-          {/* Content on the right */}
           <div className={styles.subjectDetails}>
-            {/* Subject Statistics */}
             {subjects.includes(activeSection) && <UserStatistics subject={activeSection} />}
             
-            {/* Reports Section */}
             {reports.includes(activeSection) && (
               <div>
                 <h2>{activeSection}</h2>
@@ -127,21 +121,25 @@ export default function Dashboard() {
             )}
           </div>
         </div>
-
-        {subjects.map((subject) => (
-  <div className={styles.subjectCard} key={subject}>
-    <div className={styles.cardHeader}>
-      <h4>{subject}</h4>
-    </div>
-    <div className={styles.hoverButtons}>
-      <div className={styles.hoverButton}></div>
-      <div className={styles.hoverButton}></div>
-      <div className={styles.hoverButton}></div>
-      <div className={styles.hoverButton}></div>
-    </div>
-  </div>
-))}
-
+        <div className={styles.subjectCardsContainer}>
+          {subjects.map((subject) => (
+            <div className={styles.subjectCard} key={subject}>
+              <div className={styles.cardHeader}>
+                <h4>{subject}</h4>
+              </div>
+              <Link href={`/dashboard/${encodeURIComponent(subject)}`} passHref>
+                <div className={styles.subjectButton}>
+                  <div className={styles.buttonText}>{`${subject} Dashboard`}</div>
+                  <img
+                    src="/images/arrowIconMain.png" 
+                    alt="Icon"
+                    className={styles.buttonImage}
+                  />
+                </div>
+              </Link>
+            </div>
+          ))}
+        </div>
       </div>
     </>
   );

@@ -4,10 +4,10 @@
   background-color: white;
   color: #333;
   padding: 5rem 0;
-  display: flex; /* To align left and right sections */
+  display: flex; 
   justify-content: space-between;
   align-items: center;
-  font-family: 'Roboto Mono', monospace; /* Monospace font */
+  font-family: 'Roboto Mono', monospace;
 }
 
 .heroContainer {
@@ -40,7 +40,7 @@
 }
 
 .heroButton {
-  background-color: #998DA5; /* Soft purple/gray */
+  background-color: #998DA5; 
   color: white;
   padding: 0.75rem 1.5rem;
   border-radius: 1rem;
@@ -84,8 +84,6 @@
   color: #8a759f;
 }
 
-
-/* Responsive styling */
 @media (max-width: 768px) {
   .heroContainer {
     flex-direction: column;
@@ -95,10 +93,13 @@
   .heroContent {
     max-width: 100%;
     text-align: center;
+    padding-left: 0;
+    padding-top: 20px;
   }
 
-  .heroSlideshow {
+  .heroMindMap {
     max-width: 100%;
     margin-top: 2rem;
+    padding-top: 0;
   }
 }

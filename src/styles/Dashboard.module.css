@@ -1,3 +1,5 @@
+/* Dashboard.module.css */
+
 /* Main Dashboard Container */
 .dashboardContainer {
   padding: 2rem;
@@ -7,6 +9,7 @@
   align-items: center;
 }
 
+/* User Info Row */
 .userInfoRow {
   width: 80%;
   display: flex;
@@ -36,6 +39,7 @@
   padding-top: 30px;
 }
 
+/* Main Box */
 .mainBox {
   width: 90%;
   display: flex;
@@ -43,9 +47,10 @@
   border-radius: 15px;
   background-color: white;
   padding: 3rem;
-  margin-bottom: 3rem;  
+  margin-bottom: 3rem;
 }
 
+/* Sidebar */
 .sidebar {
   width: 30%;
   padding-right: 2rem;
@@ -114,80 +119,78 @@
   color: white;
 }
 
+/* Subject Details */
 .subjectDetails {
   width: 70%;
   padding-left: 2rem;
   display: flex;
-  color: white;
+  color: black; /* Changed to black for better readability */
   flex-direction: column;
   justify-content: center;
 }
 
+/* Subject Cards Container */
 .subjectCardsContainer {
   margin-top: 3rem;
-  padding: 2rem;
-  background-color: #ffffff;  
-  border-radius: 12px;
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.cardsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+.subjectDetails {
+  width: 70%;
+  padding-left: 2rem;
+  display: flex;
+  color: black;
+  flex-direction: column;
+  justify-content: center;
 }
 
+/* Subject Cards Container */
+.subjectCardsContainer {
+  margin-top: 3rem;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Subject Card Styles */
 .subjectCard {
   background-color: white;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  padding: 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease, height 0.3s ease;
   margin-bottom: 1.5rem;
-  width: 90%;
-  height: 100px; 
-  overflow: hidden; /* Initially hide hover buttons */
+  width: 100%;
+  height: 100px; /* Fixed height */
+  overflow: hidden;
 }
 
 .subjectCard:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
-  height: 250px; 
+  height: 200px;
+}
+
+.cardHeader {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .cardHeader h4 {
   font-size: 2rem;
   font-weight: bold;
-  color: #998DA5;
-  flex-grow: 1;
+  color: #998da5;
+  margin: 0;
 }
 
-.hoverButtons {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  width: 70%; 
-  margin-left: auto; 
-  margin-top: 1rem;
-}
-
-.subjectCard:hover .hoverButtons {
-  opacity: 1;
-}
-
-.hoverButton {
-  width: 180px; 
-  height: 200px; 
-  background-color: #998DA5;
+.subjectButton {
+  background-color: #998da5;
   color: white;
   text-align: center;
   border-radius: 8px;
@@ -196,9 +199,57 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  padding: 1rem;
+  position: absolute;
+  right: -100%; 
+  top: 50%;
+  transform: translateY(-50%);
+  width: 97%;
+  height: 150px;
+  transition: right 0.5s ease;
 }
 
-.hoverButton:hover {
-  transform: scale(1.05); 
+.subjectCard:hover .subjectButton {
+  right: 20px; 
+}
+
+.buttonText {
+  position: absolute;
+  top: 50px;
+  left: 15px;
+  font-size: 2rem;
+}
+
+.buttonImage {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 48px; 
+  height: 48px; 
+}
+
+/* Adjustments for Responsive Design */
+@media (max-width: 768px) {
+  .mainBox {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sidebar,
+  .subjectDetails {
+    width: 100%;
+    padding: 0;
+  }
+
+  .subjectDetails {
+    margin-top: 2rem;
+  }
+
+  .subjectCard {
+    height: 80px;
+  }
+
+  .subjectButton {
+    width: calc(100% - 60px);
+  }
 }

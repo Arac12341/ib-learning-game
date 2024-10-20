@@ -1,0 +1,88 @@
+/* styles/IBEconomicsDashboard.module.css */
+
+.dashboardHero {
+    background-color: white;
+    color: #333;
+    padding: 5rem 0;
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Roboto Mono', monospace;
+  }
+  
+  .dashboardContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  .dashboardContent {
+    max-width: 50%;
+    text-align: left; 
+    padding-left: 50px;
+    padding-top: 50px;
+  }
+  
+  .dashboardTitle {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    color: #998DA5; /* Soft purple/gray */
+  }
+  
+  .dashboardText {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    color: #333;
+  }
+  
+  .dashboardButton {
+    background-color: #998DA5; 
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 1rem;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .dashboardButton:hover {
+    background-color: #8a759f; /* Slightly darker accent on hover */
+  }
+  
+  .dashboardMindMap {
+    padding-top: 100px;
+    position: relative;
+    overflow: hidden;
+    min-height: 200px; 
+    min-width: 800px;
+  }
+  
+  .dashboardMindMap > div {
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Responsive styling */
+  @media (max-width: 768px) {
+    .dashboardContainer {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .dashboardContent {
+      max-width: 100%;
+      text-align: center;
+      padding-left: 0;
+      padding-top: 20px;
+    }
+  
+    .dashboardMindMap {
+      max-width: 100%;
+      margin-top: 2rem;
+      padding-top: 0;
+    }
+  }
+  

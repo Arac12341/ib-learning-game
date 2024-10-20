@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 body {
-  background-color: white; /* Light gray background */
+  background-color: white; 
   font-family: 'Roboto Mono', monoscape; 
-  overflow-x: hidden; /* Prevents horizontal scrolling */
+  overflow-x: hidden; 
 
 }
 
